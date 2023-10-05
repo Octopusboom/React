@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Stack from '@mui/material/Stack';
+import ProfileCard from './components/ProfileCard';
+import ComponentWithChildrenAndProps from './components/ComponentWithChildrenAndProps';
+import CounterWithState from './components/CounterWithState';
+import CounterWithStateAndUseEffect from './components/CounterWithStateAndUseEffect';
+import UseRefHook from './components/useRefHook';
+
+// Importing images
+import AlexaImg from './img/alexa.png';
+import CortanaImg from './img/cortana.png';
+import SiriImg from './img/siri.png';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React FAST
-        </a>
-      </header>
-    </div>
+    <>
+    <UseRefHook />
+    <CounterWithStateAndUseEffect />
+    <Stack spacing={3} direction="row" flexWrap="wrap" sx={{width: "100%", height:"100vh", padding: "50px", justifyContent: "center", alignItems: "center", boxSizing: "border-box"}}>
+      <ProfileCard image={AlexaImg} title="Alexa" handler="@alexa99" text="I'll help you buy stuff from Amazon" />
+      <ProfileCard image={CortanaImg} title="Cortana" handler="@cortana12" text="Personal assistant from Microsoft" />
+      <ProfileCard image={SiriImg} title="Siri" handler="@siri44" text="I am old and useless :)" />
+    </Stack>
+    <ComponentWithChildrenAndProps title="This is title">This is children</ComponentWithChildrenAndProps>
+    <CounterWithState />
+    </>
   );
 }
 
